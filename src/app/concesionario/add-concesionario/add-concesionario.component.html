@@ -1,0 +1,20 @@
+<div>
+    <form class="d-flex align-items-start flex-column" [formGroup]="concesionarioForm" (ngSubmit)="addConcesionario()">
+            <input type="hidden" name="id" id="txtid" formControlName="id">
+            <div class="form-group p-3 mb-2">
+                <label for="name">Nombre</label><br>
+                <input class="form-control" type="text" name="txtname" id="txtname" formControlName="nombre">
+            </div><br>
+            <div class="form-group p-3 mb-2">
+                <label for="name">Direccion</label><br>
+                <input class="form-control" type="text" name="txtlastname" id="txtdireccion" formControlName="direccion">
+            </div><br>
+            <div class="form-group p-3 mb-2">
+                <label for="name">Telefono</label><br>
+                <input class="form-control" type="number" name="txtPhone" id="txtPhone" formControlName="telefono">
+            </div><br>
+            <div class="form-group p-3 mb-2">
+                <input class="btn btn-success" type="submit" value="Guardar"/>
+            </div>
+    </form>
+</div>

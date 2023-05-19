@@ -1,0 +1,42 @@
+<div>
+    <h3>Lista Ventas</h3>
+        <div >
+            <table class="table">
+                <thead class="table-primary">
+                    <tr>
+                        <td>ID</td>
+                        <td>Fecha</td>
+                        <td>Metodo de Pago</td>
+                        <td>Total Venta</td>
+                        <td>Nombre del Cliente</td>
+                        <td>Apellido del Cliente</td>
+                        <td>Nombre del Empleado</td>
+                        <td>Apellido del Empleado</td>
+                        <td>Precio</td>
+                        <td>Color</td>
+                        <td>Acciones</td>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let item of formVenta">
+                        <td>{{item.id}}</td>
+                        <td>{{item.fecha}}</td>
+                        <td>{{item.metPago}}</td>
+                        <td>{{item.totalVenta}}</td>
+                        <td>{{item.nomCliente}}</td>
+                        <td>{{item.apellCliente}}</td>
+                        <td>{{item.nomEmpleado}}</td>
+                        <td>{{item.apellEmpleado}}</td>
+                        <td>{{item.precio}}</td>
+                        <td>{{item.color}}</td>
+                        <td>
+                            <a class="btn btn-success" href="#">Editar</a>
+                            <a class="btn btn-danger" href="#">Eliminar</a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+
+        </div>
+    
+</div>

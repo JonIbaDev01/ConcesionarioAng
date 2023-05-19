@@ -1,0 +1,30 @@
+<div>
+    <h3>Lista Concesionarios</h3>
+        <div >
+            <table class="table">
+                <thead class="table-primary">
+                    <tr>
+                        <td>ID</td>
+                        <td>Nombre</td>
+                        <td>Direccion</td>
+                        <td>Telefono</td>
+                        <td>Acciones</td>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let item of formConcesionario">
+                        <td>{{item.id}}</td>
+                        <td>{{item.nombre}}</td>
+                        <td>{{item.direccion}}</td>
+                        <td>{{item.telefono}}</td>
+                        <td>
+                            <a class="btn btn-success" href="#">Editar</a>
+                            <a class="btn btn-danger" href="#">Eliminar</a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+
+        </div>
+    
+</div>

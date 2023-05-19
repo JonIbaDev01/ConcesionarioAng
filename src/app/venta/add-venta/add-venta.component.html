@@ -1,0 +1,44 @@
+<div>
+    <form class="d-flex align-items-start flex-column" [formGroup]="ventaForm" (ngSubmit)="addVenta()">
+            <input type="hidden" name="id" id="txtid" formControlName="id">
+            <div class="form-group p-3 mb-2">
+                <label for="name">Fecha</label><br>
+                <input class="form-control" type="text" name="txtFecha" id="txtFecha" formControlName="fecha">
+            </div><br>
+            <div class="form-group p-3 mb-2">
+                <label for="name">Metodo de Pago</label><br>
+                <input class="form-control" type="text" name="txtMetPago" id="txtMetPago" formControlName="metPago">
+            </div><br>
+            <div class="form-group p-3 mb-2">
+                <label for="name">Total Venta</label><br>
+                <input class="form-control" type="number" name="txtTotalVenta" id="txtTotalVenta" formControlName="totalVenta">
+            </div><br>
+            <div class="form-group p-3 mb-2">
+                <label for="name">Nombre Cliente</label><br>
+                <input class="form-control" type="text" name="txtNomCliente" id="txtNomCliente" formControlName="nomCliente">
+            </div><br>
+            <div class="form-group p-3 mb-2">
+                <label for="name">Apellido Cliente</label><br>
+                <input class="form-control" type="text" name="txtApellCliente" id="txtApellCliente" formControlName="apellCliente">
+            </div><br>
+            <div class="form-group p-3 mb-2">
+                <label for="name">Nombre Empleado</label><br>
+                <input class="form-control" type="text" name="txtNomEmpleado" id="txtNomEmpleado" formControlName="nomEmpleado">
+            </div><br>
+            <div class="form-group p-3 mb-2">
+                <label for="name">Apellido Cliente</label><br>
+                <input class="form-control" type="text" name="txtApellEmpleado" id="txtApellEmpleado" formControlName="apellEmpleado">
+            </div><br>
+            <div class="form-group p-3 mb-2">
+                <label for="name">Precio</label><br>
+                <input class="form-control" type="text" name="txtPrecio" id="txtPrecio" formControlName="precio">
+            </div><br>
+            <div class="form-group p-3 mb-2">
+                <label for="name">Color</label><br>
+                <input class="form-control" type="text" name="txtColor" id="txtColor" formControlName="color">
+            </div><br>
+            <div class="form-group p-3 mb-2">
+                <input class="btn btn-success" type="submit" value="Guardar"/>
+            </div>
+    </form>
+</div>
