@@ -34,8 +34,8 @@ export class FormClienteComponent implements OnInit {
 
   confirmar():void{
     Swal.fire({
-      title: "Usuarios",
-      text: "¿Eliminar?",
+      title: "Clientes",
+      text: "¿Desea Eliminar?",
       icon: 'warning',
       showCancelButton: true,
       confirmButtonText: "Sí, eliminar",
@@ -47,10 +47,10 @@ export class FormClienteComponent implements OnInit {
           this.api.eliminarCliente(this.id).subscribe(res=>{
             console.log("++++++",res);
           });
-          console.log("*se elimina la venta*");
+          console.log("*Se elimina el Cliente*");
       } else  if (resultado.dismiss === Swal.DismissReason.cancel) {
           // Dijeron que no
-          console.log("*NO se elimina la venta*");
+          console.log("*NO se elimina el CLiente*");
       }
   });
 
