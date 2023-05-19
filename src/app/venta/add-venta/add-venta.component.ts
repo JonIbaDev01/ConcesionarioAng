@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
 import { ApiVentaService } from 'src/app/services/api-venta.service';
-
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-add-venta',
@@ -43,10 +43,14 @@ export class AddVentaComponent implements OnInit {
       color:this.ventaForm.get('color')?.value
     }
     this.api.crearVenta(venta).subscribe(resp=>{
-      if(resp.status==="ok"){
-        alert("Registro Exitoso");
-        this.router.navigate(['form-venta'])
-      }
+      console.log("#$#$#$#$ ",resp);
+
+          if(resp.status==="ok" && resp.code==="200"){
+            Swal.fire('Registro exitoso')
+            this.router.navigate(['lista-clientes']);
+          }else{
+            Swal.fire("Registro fallido: "+ resp.status)
+          }
     }); 
   }
 }

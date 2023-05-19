@@ -3,7 +3,7 @@ import { FormControl, FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
 import { Concesionario } from 'src/app/model/Concesionario';
 import { ApiConcesionarioService } from 'src/app/services/api-concesionario.service';
-
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-add-concesionario',
@@ -32,10 +32,14 @@ export class AddConcesionarioComponent implements OnInit {
       telefono:this.concesionarioForm.get('telefono')?.value
     }
     this.api.crearConcesionario(concesionario).subscribe(resp=>{
-      if(resp.status==="ok"){
-        alert("Registro Exitoso");
-        this.router.navigate(['form-concesionario'])
-      }
+      console.log("#$#$#$#$ ",resp);
+
+          if(resp.status==="ok" && resp.code==="200"){
+            Swal.fire('Registro exitoso')
+            this.router.navigate(['lista-clientes']);
+          }else{
+            Swal.fire("Registro fallido: "+ resp.status)
+          }
     }); 
   }
 }

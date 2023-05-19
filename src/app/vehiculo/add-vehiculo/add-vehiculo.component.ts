@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
 import { ApiVehiculoService } from 'src/app/services/api-vehiculo.service';
-
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-add-vehiculo',
@@ -39,10 +39,14 @@ export class AddVehiculoComponent implements OnInit {
       color:this.vehiculoForm.get('color')?.value
     }
     this.api.crearVehiculo(vehiculo).subscribe(resp=>{
-      if(resp.status==="ok"){
-        alert("Registro Exitoso");
-        this.router.navigate(['form-vehiculo'])
-      }
+      console.log("#$#$#$#$ ",resp);
+
+          if(resp.status==="ok" && resp.code==="200"){
+            Swal.fire('Registro exitoso')
+            this.router.navigate(['lista-clientes']);
+          }else{
+            Swal.fire("Registro fallido: "+ resp.status)
+          }
     }); 
   }
 }
