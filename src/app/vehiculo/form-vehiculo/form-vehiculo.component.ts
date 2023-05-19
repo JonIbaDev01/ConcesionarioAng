@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Vehiculo } from 'src/app/model/Vehiculo';
 import { ApiVehiculoService } from 'src/app/services/api-vehiculo.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-form-vehiculo',
@@ -23,12 +24,16 @@ export class FormVehiculoComponent implements OnInit {
   }
 
   delete(data:number){
-    this.api.eliminarVehiculo(data).subscribe(res=>{
+    this.api.eliminarVehiculo(data).subscribe(resp=>{
       
-      if(res.status==="ok"){
-        alert("Eliminacion Exitosa");
-        this.router.navigate(['form-vehiculo'])
-      }
+      console.log("#$#$#$#$ ",resp);
+
+          if(resp.status==="ok" && resp.code==="200"){
+            Swal.fire('Eliminacion exitosa')
+            this.router.navigate(['form-vehiculo']);
+          }else{
+            Swal.fire("Eliminacion fallida: "+ resp.status)
+          }
     });
   }
 }

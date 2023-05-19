@@ -12,7 +12,9 @@ import Swal from 'sweetalert2';
 export class FormClienteComponent implements OnInit {
 
   formCliente:Cliente[]=[];
+  
   constructor(private api:ApiClienteService, private router:Router){}
+
   ngOnInit(): void {
     this.getTodos();
   }
@@ -37,5 +39,4 @@ export class FormClienteComponent implements OnInit {
     });
   }
 
-  
 }

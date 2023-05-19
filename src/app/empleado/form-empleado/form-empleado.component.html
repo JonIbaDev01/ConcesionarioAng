@@ -21,7 +21,7 @@
                         <td>{{item.correo}}</td>
                         <td>
                             <a class="btn btn-success" href="#">Editar</a>
-                            <a class="btn btn-danger" href="#" (click)="delete(item.id)">Eliminar</a>
+                            <a class="btn btn-danger" (click)="delete(item.id)">Eliminar</a>
                         </td>
                     </tr>
                 </tbody>
@@ -30,3 +30,4 @@
         </div>
     
 </div>
+<script src="sweetalert2.all.min.js"></script>

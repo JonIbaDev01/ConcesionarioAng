@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Concesionario } from 'src/app/model/Concesionario';
 import { ApiConcesionarioService } from 'src/app/services/api-concesionario.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-form-concesionario',
@@ -23,12 +24,16 @@ export class FormConcesionarioComponent implements OnInit {
   }
 
   delete(data:number){
-    this.api.eliminarConcesionario(data).subscribe(res=>{
+    this.api.eliminarConcesionario(data).subscribe(resp=>{
       
-      if(res.status==="ok"){
-        alert("Eliminacion Exitosa");
-        this.router.navigate(['form-concesionario'])
-      }
+      console.log("#$#$#$#$ ",resp);
+
+          if(resp.status==="ok" && resp.code==="200"){
+            Swal.fire('Eliminacion exitosa')
+            this.router.navigate(['form-concesionario']);
+          }else{
+            Swal.fire("Eliminacion fallida: "+ resp.status)
+          }
     });
   }
 }

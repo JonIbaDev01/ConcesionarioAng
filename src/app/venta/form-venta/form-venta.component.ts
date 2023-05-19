@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Venta } from 'src/app/model/Venta';
 import { ApiVentaService } from 'src/app/services/api-venta.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-form-venta',
@@ -23,12 +24,16 @@ export class FormVentaComponent implements OnInit {
   }
 
   delete(data:number){
-    this.api.eliminarVenta(data).subscribe(res=>{
+    this.api.eliminarVenta(data).subscribe(resp=>{
       
-      if(res.status==="ok"){
-        alert("Eliminacion Exitosa");
-        this.router.navigate(['form-venta'])
-      }
+      console.log("#$#$#$#$ ",resp);
+
+          if(resp.status==="ok" && resp.code==="200"){
+            Swal.fire('Eliminacion exitosa')
+            this.router.navigate(['form-venta']);
+          }else{
+            Swal.fire("Eliminacion fallida: "+ resp.status)
+          }
     });
   }
 }
