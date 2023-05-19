@@ -24,7 +24,6 @@ export class FormEmpleadoComponent implements OnInit {
 
   delete(data:number){
     this.api.eliminarEmpleado(data).subscribe(res=>{
-      
       if(res.status==="ok"){
         alert("Eliminacion Exitosa");
         this.router.navigate(['form-empleado'])
