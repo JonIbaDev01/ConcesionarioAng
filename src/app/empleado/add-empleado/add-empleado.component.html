@@ -1,0 +1,24 @@
+<div>
+    <form class="d-flex align-items-start flex-column" [formGroup]="empleadoForm" (ngSubmit)="addEmpleado()">
+            <input type="hidden" name="id" id="txtid" formControlName="id">
+            <div class="form-group p-3 mb-2">
+                <label for="name">Nombres</label><br>
+                <input class="form-control" type="text" name="txtname" id="txtname" formControlName="nombres">
+            </div><br>
+            <div class="form-group p-3 mb-2">
+                <label for="name">Apellidos</label><br>
+                <input class="form-control" type="text" name="txtlastname" id="txtlastname" formControlName="apellidos">
+            </div><br>
+            <div class="form-group p-3 mb-2">
+                <label for="name">Telefono</label><br>
+                <input class="form-control" type="number" name="txtPhone" id="txtPhone" formControlName="telefono">
+            </div><br>
+            <div class="form-group p-3 mb-2">
+                <label for="name">Correo</label><br>
+                <input class="form-control" type="text" name="txtEmail" id="txtEmail" formControlName="correo">
+            </div><br>
+            <div class="form-group p-3 mb-2">
+                <input class="btn btn-success" type="submit" value="Guardar"/>
+            </div>
+    </form>
+</div>

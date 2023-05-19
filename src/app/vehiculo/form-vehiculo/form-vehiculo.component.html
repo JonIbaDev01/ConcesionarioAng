@@ -1,0 +1,38 @@
+<div>
+    <h3>Lista Vehiculos</h3>
+        <div >
+            <table class="table">
+                <thead class="table-primary">
+                    <tr>
+                        <td>ID</td>
+                        <td>Tipo de Vehiculo</td>
+                        <td>Modelo</td>
+                        <td>Centimetros Cubicos</td>
+                        <td>Placa</td>
+                        <td>Precio</td>
+                        <td>Marca</td>
+                        <td>Color</td>
+                        <td>Acciones</td>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let item of formVehiculo">
+                        <td>{{item.id}}</td>
+                        <td>{{item.tipoVehiculo}}</td>
+                        <td>{{item.modelo}}</td>
+                        <td>{{item.centCubicos}}</td>
+                        <td>{{item.placa}}</td>
+                        <td>{{item.precio}}</td>
+                        <td>{{item.marca}}</td>
+                        <td>{{item.color}}</td>
+                        <td>
+                            <a class="btn btn-success" href="#">Editar</a>
+                            <a class="btn btn-danger" href="#" (click)="delete(item.id)">Eliminar</a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+
+        </div>
+    
+</div>
