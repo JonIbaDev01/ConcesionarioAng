@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
 import { ApiEmpleadoService } from 'src/app/services/api-empleado.service';
-
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-add-empleado',
@@ -33,10 +33,14 @@ export class AddEmpleadoComponent implements OnInit {
       correo:this.empleadoForm.get('correo')?.value
     }
     this.api.crearEmpleado(empleado).subscribe(resp=>{
-      if(resp.status==="ok"){
-        alert("Registro Exitoso");
-        this.router.navigate(['form-empleado'])
-      }
+      console.log("#$#$#$#$ ",resp);
+
+          if(resp.status==="ok" && resp.code==="200"){
+            Swal.fire('Registro exitoso')
+            this.router.navigate(['form-empleado']);
+          }else{
+            Swal.fire("Registro fallido: "+ resp.status)
+          }
     }); 
   }
 }

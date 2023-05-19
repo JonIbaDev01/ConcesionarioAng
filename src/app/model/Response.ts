@@ -1,4 +1,5 @@
 export interface Response{
     status:string,
-    data:any
+    data:any,
+    code:string
 }

@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Cliente } from 'src/app/model/Cliente';
 import { ApiClienteService } from 'src/app/services/api-cliente.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-form-cliente',
@@ -23,12 +24,16 @@ export class FormClienteComponent implements OnInit {
   }
 
   delete(data:number){
-    this.api.eliminarCliente(data).subscribe(res=>{
+    this.api.eliminarCliente(data).subscribe(resp=>{
       
-      if(res.status==="ok"){
-        alert("Eliminacion Exitosa");
-        this.router.navigate(['form-cliente'])
-      }
+      console.log("#$#$#$#$ ",resp);
+
+          if(resp.status==="ok" && resp.code==="200"){
+            Swal.fire('Eliminacion exitosa')
+            this.router.navigate(['form-cliente']);
+          }else{
+            Swal.fire("Eliminacion fallida: "+ resp.status)
+          }
     });
   }
 

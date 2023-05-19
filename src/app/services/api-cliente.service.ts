@@ -24,7 +24,7 @@ export class ApiClienteService {
   }
 
   eliminarCliente(data:number):Observable<Response>{
-    return this.http.delete<Response>(urlBase+"/eliminar/"+data);
+    return this.http.get<Response>(urlBase+"/eliminar/"+data);
   }
 
 }
