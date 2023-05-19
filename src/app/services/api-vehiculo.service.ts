@@ -19,4 +19,8 @@ export class ApiVehiculoService {
     return this.http.post<Response>(urlBase+"/crear",data);
   }
 
+  eliminarVehiculo(data:number):Observable<Response>{
+    return this.http.delete<Response>(urlBase+"/eliminar/"+data);
+  }
+
 }

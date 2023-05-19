@@ -19,4 +19,8 @@ export class ApiEmpleadoService {
     return this.http.post<Response>(urlBase+"/crear",data);
   }
 
+  eliminarEmpleado(data:number):Observable<Response>{
+    return this.http.delete<Response>(urlBase+"/eliminar/"+data);
+  }
+
 }

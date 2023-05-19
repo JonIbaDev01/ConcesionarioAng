@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { Concesionario } from 'src/app/model/Concesionario';
 import { ApiConcesionarioService } from 'src/app/services/api-concesionario.service';
 
@@ -10,7 +11,7 @@ import { ApiConcesionarioService } from 'src/app/services/api-concesionario.serv
 export class FormConcesionarioComponent implements OnInit {
 
   formConcesionario:Concesionario[]=[];
-  constructor(private api:ApiConcesionarioService){}
+  constructor(private api:ApiConcesionarioService, private router:Router){}
   ngOnInit(): void {
     this.getTodos();
   }
@@ -18,6 +19,16 @@ export class FormConcesionarioComponent implements OnInit {
   getTodos():void{
     this.api.traerTodos().subscribe(res=>{
       this.formConcesionario=res.data;
+    });
+  }
+
+  delete(data:number){
+    this.api.eliminarConcesionario(data).subscribe(res=>{
+      
+      if(res.status==="ok"){
+        alert("Eliminacion Exitosa");
+        this.router.navigate(['form-concesionario'])
+      }
     });
   }
 }

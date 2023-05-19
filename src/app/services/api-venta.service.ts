@@ -19,4 +19,8 @@ export class ApiVentaService {
     return this.http.post<Response>(urlBase+"/crear",data);
   }
 
+  eliminarVenta(data:number):Observable<Response>{
+    return this.http.delete<Response>(urlBase+"/eliminar/"+data);
+  }
+
 }

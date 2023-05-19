@@ -19,4 +19,8 @@ export class ApiConcesionarioService {
     return this.http.post<Response>(urlBase+"/crear",data);
   }
 
+  eliminarConcesionario(data:number):Observable<Response>{
+    return this.http.delete<Response>(urlBase+"/eliminar/"+data);
+  }
+
 }
