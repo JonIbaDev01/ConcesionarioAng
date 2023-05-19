@@ -47,7 +47,7 @@ export class AddVentaComponent implements OnInit {
 
           if(resp.status==="ok" && resp.code==="200"){
             Swal.fire('Registro exitoso')
-            this.router.navigate(['lista-clientes']);
+            this.router.navigate(['form-venta']);
           }else{
             Swal.fire("Registro fallido: "+ resp.status)
           }
